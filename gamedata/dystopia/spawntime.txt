@@ -1,0 +1,35 @@
+"Games"
+{
+	"!Dystopia"
+	{
+		"Signatures"
+		{
+			"Sig_AddSpawnTime"
+			{
+				"library"   "server"
+				"linux"		"@_ZN8CDYSTeam14AddToSpawnTimeEf"
+				//"windows"	"\x55\x8B\xEC\x83\xEC\x14\x56\x6A\x01"
+			}
+		}
+		
+		"Functions"
+		{
+			"Fn_AddSpawnTime"
+			{
+				"signature"	"Sig_AddSpawnTime"
+				"hooktype"	"raw"
+				"callconv"	"thiscall"
+				"return"	"void"
+				"this"		"address"
+				"arguments"
+				{
+					"spawntime"
+					{
+						"type" "float"
+					}
+				}
+			}
+		}
+
+	}
+}
