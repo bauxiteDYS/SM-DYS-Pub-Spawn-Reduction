@@ -9,9 +9,9 @@
 
 public Plugin myinfo = {
 	name = "Dys Pub Spawn reduction",
-	description = "Reduces spawn time for pubs when there are over 12 players",
+	description = "Reduces spawn time for pubs when there are over 10 players",
 	author = "bauxite",
-	version = "0.1.0",
+	version = "0.2.0",
 	url = "",
 };
 
@@ -39,7 +39,7 @@ MRESReturn HookPre_AddSpawnTime(int pThis, DHookParam hParams)
 	float spawnTime = hParams.Get(1);
 	int players = GetTeamClientCount(2) + GetTeamClientCount(3);
 	
-	if(players < 13 || spawnTime == 15.0 || spawnTime == 5.0 || spawnTime < 3.0)
+	if(players < 11 || spawnTime == 15.0 || spawnTime == 5.0 || spawnTime < 3.0)
 	{
 		return MRES_Ignored;
 	}
