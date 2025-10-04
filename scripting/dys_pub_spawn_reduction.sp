@@ -11,7 +11,7 @@ public Plugin myinfo = {
 	name = "Dys Pub Spawn reduction",
 	description = "Reduces spawn time for pubs when there are over 10 players",
 	author = "bauxite",
-	version = "0.2.0",
+	version = "0.3.0",
 	url = "",
 };
 
@@ -32,6 +32,17 @@ public void OnPluginStart()
 		SetFailState("Failed to detour");
 	}
 	delete dd;
+}
+
+public void OnMapStart()
+{
+	CreateTimer(15.0, NotifyPlayers,_, TIMER_FLAG_NO_MAPCHANGE);
+}
+
+public Action NotifyPlayers(Handle timer)
+{
+	PrintToChatAll("\x08ffdd00[Pub Spawn] \x0800ccffSpawn times will be reduced when there are more than 10 active players");
+	return Plugin_Stop;
 }
 
 MRESReturn HookPre_AddSpawnTime(int pThis, DHookParam hParams)
