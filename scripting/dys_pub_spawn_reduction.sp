@@ -5,7 +5,11 @@
 #include <dhooks>
 #include <sdktools>
 
+
 #define DEBUG false
+
+char g_tag[] = "[PUB Spawn";
+char g_ctag[] = "\x04[PUB Spawn]\x01";
 
 public Plugin myinfo = {
 	name = "Dys Pub Spawn reduction",
@@ -36,12 +40,14 @@ public void OnPluginStart()
 
 public void OnMapStart()
 {
+	// make it per client on join?
+	
 	CreateTimer(15.0, NotifyPlayers,_, TIMER_FLAG_NO_MAPCHANGE);
 }
 
 public Action NotifyPlayers(Handle timer)
 {
-	PrintToChatAll("\x08ffdd00[Pub Spawn] \x0800ccffSpawn times will be reduced when there are more than 10 active players");
+	PrintToChatAll("%s Spawn time will be reduced based on the player count when there are more than 10 active players", g_ctag);
 	return Plugin_Stop;
 }
 
